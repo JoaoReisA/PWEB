@@ -1,0 +1,37 @@
+body {
+  background: #fff1d6;
+  background-repeat: no-repeat;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
+  line-height: 1.5;
+  /* text-align: center; */
+}
+
+section {
+  /* para a barra lateral lista e titulo */
+  float: left;
+  width: 660px;
+  
+}
+
+aside {
+  background-color: #fffbe4;
+  border: 1px solid #c9bc8f;
+  padding: 10px;
+  float: right;
+  width: 260px;
+}
+
+footer {
+  font-size: 12px;
+  text-align: center;
+}
+
+.clear {
+  /* para a imagem nao "ficar fora" quando usa o float */
+  clear: both;
+}
+
+.album {
+  align-content: center;
+  
+}
