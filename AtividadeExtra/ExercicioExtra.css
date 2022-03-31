@@ -1,0 +1,51 @@
+#container{
+    width: 100px;
+    height: 100px;
+   background : black;
+}
+
+@media screen and (min-width: 1366px) and (max-width: 1920px)  {
+	
+    #container{
+   
+        background : yellow;
+    }
+
+}
+
+/* 700px ou menor  */
+@media screen and (min-width: 1024px) and (max-width: 1366px) {
+
+    #container{
+
+        background : red;
+    }
+}
+
+/*  480px or menor  */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+    #container{
+
+        background : blue;
+    }
+
+}
+
+@media screen and (min-width: 420px) and (max-width: 768px){
+
+    #container{
+     
+        background : magenta;
+    }
+
+}
+
+@media screen and (max-width: 420px) {
+
+    #container{
+   
+        background : navy;
+    }
+
+}
