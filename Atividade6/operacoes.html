@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input id="number1" type="number" />
+    <input id="number2" type="number" />
+    <button onclick="calcular()">Calcular</button>
+    <script>
+      function calcular() {
+        let nota1 = document.querySelector("#number1").value;
+        let nota2 = document.querySelector("#number2").value;
+
+        let soma = parseFloat(nota1) + parseFloat(nota2);
+        let sub = parseFloat(nota1) - parseFloat(nota2);
+        let prod = parseFloat(nota1) * parseFloat(nota2);
+        let div = parseFloat(nota1) / parseFloat(nota2);
+        let rest = parseFloat(nota1) % parseFloat(nota2);
+        alert(
+          `A soma é ${soma}, A sub é ${sub}, O produto é ${prod}, A divisao e ${div}, O resto é ${rest}`
+        );
+      }
+    </script>
+  </body>
+</html>
