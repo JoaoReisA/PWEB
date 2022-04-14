@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .placares {
+            display: flex;
+            align-items: space-between;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Placar</h1>
+    <div class="placares">
+        <h2>Você</h2>
+        <h2>/</h2>
+        <h2>Computador</h2>
+    </div>
+    <div class="placares">
+        <div id="placarJogador"><h1>0</h1></div>
+        <h2>/</h2>
+        <div id="placarComputador"><h1>0</h1></div>
+    </div>
+
+    <Button id="Pedra" onclick="compareWithPedra()">Pedra</Button>
+    <Button id="Papel" onclick="compareWithPapel()">Papel</Button>
+    <Button id="Tesoura" onclick="compareWithTesoura()">Tesoura</Button>
+
+
+
+    <script>
+        const pedra = "PEDRA"
+        const papel = "PAPEL"
+        const tesoura = "TESOURA"
+
+        let arr = [pedra, papel, tesoura];
+        var countPlacarJogador = 0;
+        var countPlacarComputador = 0;
+
+
+        function playerWin() {
+            let playerCount = document.getElementById("placarJogador");
+            countPlacarJogador++;
+            playerCount.innerHTML = `<h1>${countPlacarJogador}</h1>`;
+        }
+
+        function computerWin() {
+            let computerCount = document.getElementById("placarComputador");
+            countPlacarComputador++;
+            computerCount.innerHTML = `<h1>${countPlacarComputador}</h1>`;
+        }
+
+        function choose() {
+            let choice = Math.random() * 3;
+            return arr[Math.floor(choice)];
+        }
+
+        function compareWithPedra() {
+            let computerChoise = choose();
+            if (computerChoise == pedra) {
+                alert("O computador jogou: " + computerChoise + " ,Você empatou");
+                playerWin();
+                computerWin();
+            } else if (computerChoise == tesoura) {
+                alert("O computador jogou: " + computerChoise + " ,Você ganhou!!!");
+                playerWin()
+            }
+            else {
+                alert("O computador jogou: " + computerChoise + " ,Você perdeu :(");
+                computerWin();
+            }
+        }
+
+        function compareWithPapel() {
+            let computerChoise = choose();
+            if (computerChoise == pedra) {
+                alert("O computador jogou: " + computerChoise + " ,Você ganhou");
+                playerWin();
+            } else if (computerChoise == tesoura) {
+                alert("O computador jogou: " + computerChoise + " ,Você perdeu :(");
+                computerWin();
+            }
+            else {
+                alert("O computador jogou: " + computerChoise + " ,Você empatou");
+                playerWin();
+                computerWin();
+            }
+        }
+
+        function compareWithTesoura() {
+            let computerChoise = choose();
+            if (computerChoise == pedra) {
+                alert("O computador jogou: " + computerChoise + " ,Você perdeu :(");
+
+                computerWin();
+            } else if (computerChoise == tesoura) {
+                alert("O computador jogou: " + computerChoise + " ,Você empatou");
+                playerWin();
+                computerWin();
+            }
+            else {
+                alert("O computador jogou: " + computerChoise + " ,Você ganhou");
+                playerWin();
+            }
+        }        
+    </script>
+</body>
+
+</html>
