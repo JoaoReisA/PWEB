@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .inputs {
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+      }
+      .submit {
+        width: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="inputs">
+      <label for="age">Idade</label>
+      <input id="age" name="age" type="text" />
+      <label for="gender">Sexo</label>
+          <select name="gender" id="gender">
+              <option value="Male">
+                Masculino   
+              </option>
+              <option value="Female">
+                  Feminino
+              </option>
+          </select>
+      <label for="opinion">Opinião</label>
+      <select name="opinion" id="opinion">
+          <option value="4">Ótimo</option>
+          <option value="3">Bom</option>
+          <option value="2">Regular</option>
+          <option value="1">péssimo</option>
+      </select>
+    </div>
+    <div>
+      <button onclick="onClick()" class="submit">Enviar</button>
+    </div>
+
+    <script>
+      let count = 0;
+      let responsesArr = [];
+      function onClick() {
+        let age = document.getElementById("age").value;
+        let gender = document.getElementById("gender").value;
+        let opinion = document.getElementById("opinion").value;
+        let responses = {
+          age: parseInt(age),
+          gender: gender,
+          opinion: parseInt(opinion)
+        };
+
+        responsesArr.push(responses);
+
+        console.log(age);
+        alert("Obrigado por enviar a sua opinião");
+        count += 1;
+
+        if (count === 3) {
+            console.log("chegou aqui")
+          results();
+        }
+      }
+      function results() {
+        calcAvg();
+        olderPerson();
+        newerPerson();
+        badCountage();
+        percentageOfGoodAndGreat();
+        getResponsesCount();
+      }
+
+      function calcAvg(){
+          let ageSum = 0;
+          responsesArr.map((e) => {
+            ageSum += e.age;
+          })
+          let avg = ageSum/responsesArr.length;
+        
+        alert("A media da idade dos alunos foi : " + avg);
+      }
+
+      function olderPerson() {
+          let olderAge =  responsesArr.map((e) => e.age).sort()[responsesArr.length - 1]
+          alert("A pessoa mais velha tem : " + olderAge + " anos");
+      }
+
+      function newerPerson(){
+        let newerAge =  responsesArr.map((e) => e.age).sort()[0]
+          alert("A pessoa mais nova tem : " + newerAge + " anos");
+      }
+
+      function badCountage(){
+          let badOpinionsCountage = 0;
+          responsesArr.forEach((e) => {
+              if(e.opinion == 1){
+                badOpinionsCountage += 1;
+              }
+          });
+
+          alert("Houveram :" + badOpinionsCountage + " pessoas que responderam péssimo" )
+      }
+
+      function percentageOfGoodAndGreat(){
+        let goodAndGreatResponses = 0;  
+        
+        responsesArr.forEach(e => {
+            if(e.opinion == 3 || e.opinion == 4){
+                goodAndGreatResponses += 1;
+            }
+          });
+          let percentage = (goodAndGreatResponses * 100)/responsesArr.length 
+
+          alert("O percentual de respostas ótimas e boas foi : " + percentage.toFixed(2) + "%")
+      }
+
+      function getResponsesCount(){
+          let responsesCount = responsesArr.length;
+          alert("O número de homems e mulheres que respondeu foi : " + responsesCount)
+      }
+
+    </script>
+  </body>
+</html>
